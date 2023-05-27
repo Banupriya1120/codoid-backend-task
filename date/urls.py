@@ -18,13 +18,16 @@ from django.contrib import admin
 from django.urls import path,include
 from .views import *
 from . import views
-from .views import Registerview,LoginView, UserView
+from .views import Registerview,LoginView, UserView,BookView,BookCreate
 
 urlpatterns = [
     path('register',Registerview.as_view()),
     path('login',LoginView.as_view()),
-    path('user', UserView.as_view())
+    path('user', UserView.as_view()),
+    path('books', BookView.as_view()),
+    path('book-create',BookCreate.as_view()),
+    path('book/<int:pk>',views.get_item),
+    path('book-update/<int:pk>',views.update_item),
+    path('book-delete/<int:pk>',views.delete_items)
 
-    
-    
 ]
